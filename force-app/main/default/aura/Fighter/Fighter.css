@@ -1,0 +1,46 @@
+.THIS .details-wrap {
+    display: none;
+}
+.THIS .details-wrap p {
+    color: gray;
+}
+.THIS .details {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+.THIS .details p {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+.THIS img {
+    height: 96px;
+}
+.THIS h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+.THIS .visible {
+    display: block;
+}
+.THIS.fighter-wrap {
+    transition: all .2s ease-in-out;
+}
+.THIS.fighter-wrap:hover {
+    transform: scale(1.1);
+}
+/* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8); PROBAJ ZA HOVER*/
+.THIS .details-click:hover {
+    opacity: 0.5;
+}
+.THIS .buttons-wrap {
+    text-align: right;
+}
+.THIS .buttons-wrap button {
+    width: 30%;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 10%;
+}

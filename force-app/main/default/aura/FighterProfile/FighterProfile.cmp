@@ -1,0 +1,20 @@
+<aura:component>
+    <aura:attribute name="fighter" type="sObject" default=""/>
+
+
+    <div class="wrapper">
+        <div class="img-div slds-size_1-of-2">
+            <img src="{! $Resource.testfighters + '/Images/' + 'ALDO_JOSE_PROFILE.png' }" class="img"/>
+        </div>
+        <div class="details-div slds-size_1-of-2">
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+            <p>Age</p>
+        </div>
+    </div>
+</aura:component>

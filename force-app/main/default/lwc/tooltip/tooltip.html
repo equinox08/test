@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-form-element__icon" style="padding-top: inherit;">
+        <a onclick={showHideHelpText} tabindex="-1">
+            <span class="slds-assistive-text">Help</span>
+            <lightning-icon icon-name="utility:warning" size="x-small" alternative-text="Warning!" title="Warning"></lightning-icon>
+        </a>
+        <div data-id="overview" class="slds-popover slds-popover_tooltip slds-nubbin_left-top ms-help-popup-in-header slds-hide slds-is-absolute slds-show_inline-block"
+            role="tooltip" aria-live="polite">
+            <div class="slds-popover__body ms-help-popup-body slds-text-align_left textStyle"> 
+                <p>{text}</p>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,19 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="RickAndMortyTest">
+    <aura:attribute name="AllCharacters" type="List" default=""/>
+	<aura:attribute name="AllClasses" 	 type="List" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div style="color:white;">
+        <!-- <aura:iteration items="{!v.AllCharacters}" var="char" >
+            <div>
+                {!char.name}
+            </div>
+            <img src="{! char.image}"/>
+        </aura:iteration>
+        <aura:iteration items="{!v.AllClasses}" var="oneClass" >
+				{!oneClass}
+        </aura:iteration> -->
+        
+    </div>	
+</aura:component>

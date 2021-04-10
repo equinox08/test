@@ -1,0 +1,10 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <footer style="position:sticky">
+	    <aura:if isTrue="{!$Browser.isPhone}">
+               mobileee testeraaaa
+            <aura:set attribute="else">
+                desktop testeraaa
+            </aura:set>
+        </aura:if>
+    </footer>
+</aura:component>

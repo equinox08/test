@@ -1,0 +1,14 @@
+.THIS .padding{
+    padding: 1.5rem;
+    background-color: gray;
+}
+/*.THIS.background {
+   background-color: rgba(208, 229, 250, 0.2);
+}*/
+
+.THIS.background {
+    background-color: black;
+ } 
+ .THIS .mainContentArea {
+    min-height: 100vh;
+ }

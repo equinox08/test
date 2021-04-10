@@ -1,0 +1,8 @@
+.THIS.stopwatch {
+    width:250px;
+    padding:8px; 
+    background-color: lightskyblue;
+}
+.THIS .time {
+    font-size: 20px;
+}

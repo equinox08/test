@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:layout" description="FightersLayout" access="global">
+    <aura:attribute name="ContentLeft" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="ContentRight" type="Aura.Component[]" required="false"/>
+</aura:component>

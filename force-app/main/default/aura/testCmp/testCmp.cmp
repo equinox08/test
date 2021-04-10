@@ -1,0 +1,75 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="testClass">
+    <aura:attribute name="fighters"         type="sObject[]" default=""/>
+    <aura:attribute name="img"              type="sObject"   default=""/>
+    <aura:attribute name="error"            type="String"    default=""/>
+    <aura:attribute name="divisions"        type="List"      default="[]"/>
+    <aura:attribute name="selectedDivision" type="String"    default="All"/>
+    <aura:attribute name="fightersLoaded"   type="Boolean"   default="false"/>
+    <aura:attribute name="showProfile"      type="Boolean"   default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <aura:if isTrue="{! v.fighter != null}">
+        <force:recordData aura:id="recordLoader"
+                          recordId="0693X000009rjHGQAY"
+                          fields="Id, Title"
+                          targetFields="{!v.img}"
+                          targetError="{!v.error}"
+        />
+    </aura:if>
+
+    <!--div wrapping filter part-->
+    <div class="slds-x-small-size_1-of-1 slds-medium-size_7-of-12 slds-large-size_7-of-12  slds-m-bottom_medium">
+        <div class="slds-size_10-of-12 slds-grid" style="margin: auto;">
+            <div class="slds-col">
+                <lightning:select label="Division"  name="Division"  aura:id="Division" value="{!v.selectedDivision}" required="true" >
+                    <aura:iteration items="{!v.divisions}" var="item" >
+                        <option text="{!item.label}" value="{!item.label}" selected="{!item.selected}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            <div class="slds-col slds-is-relative centered-text">
+                <button class="button" onclick="{!c.filterF}">Filter</button>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="slds-x-small-size_1-of-1 slds-medium-size_7-of-12 slds-large-size_7-of-12 wrap-left ">
+        <aura:if isTrue="{!v.showProfile}">
+            <div class="profile">
+                <c:FighterProfile />
+            </div>
+            <aura:set attribute="else">
+                <!--div wrapping itteration of fighters-->
+                    <div class="slds-size_10-of-12 itteration-wrap">
+                        <aura:if isTrue="{!v.fightersLoaded}">
+                            <aura:iteration items="{!v.fighters}" var="item">
+                                <c:Fighter fighter="{!item}"
+                                           showProfile="{!v.showProfile}"
+                                />
+                            </aura:iteration> 
+                            <aura:set attribute="else">
+                                    <lightning:spinner alternativeText="Loading" size="large" />
+                            </aura:set>
+                        </aura:if>
+                    </div>
+            </aura:set>
+        </aura:if>
+    </div>
+    <!--div wrapping itteration of fighters
+    <div class="slds-x-small-size_1-of-1 slds-medium-size_7-of-12 slds-large-size_7-of-12 list-wrap " style="max-height: 700px; min-height: 200px; overflow: auto; margin-bottom: 10%; border: 1px solid gray;">
+        <div class="slds-size_10-of-12" style="margin: auto; position: relative;">
+            <aura:if isTrue="{!v.fightersLoaded}">
+                <aura:iteration items="{!v.fighters}" var="item">
+                    <c:Fighter fighter="{!item}"/>
+                </aura:iteration> 
+                <aura:set attribute="else">
+                        <lightning:spinner alternativeText="Loading" size="large" />
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>-->
+    
+
+</aura:component>

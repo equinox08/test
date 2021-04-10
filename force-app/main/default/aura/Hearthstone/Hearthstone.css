@@ -1,0 +1,38 @@
+.THIS.wrapper {
+    color: white;
+}
+.THIS .select-wrapper {
+    color: black;
+    position: relative;
+}
+.THIS .button-wrap {
+    align-self: flex-end;
+    padding: 0.3rem;
+}
+.THIS .error-msg {
+    color: red;
+    font-weight: bold;
+}
+.THIS .no-cards-msg {
+    text-align: center;
+}
+.THIS .cards-wrapper {
+    position: relative;
+    margin-top: 2rem;
+}
+.THIS .card-wrap {
+    text-align: center;
+    border: 1px solid gray;
+}
+.THIS .card-wrap h2 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.THIS .card-wrap p {
+    padding-bottom: 0.75rem;
+}
+.THIS .card-details {
+    text-align: left;
+}

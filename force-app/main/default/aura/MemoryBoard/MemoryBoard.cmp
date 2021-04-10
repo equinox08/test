@@ -1,0 +1,35 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="Cards"             type="List"    default=""/>
+    <aura:attribute name="numberOfMatches"   type="Integer" default="0"/>
+    <aura:attribute name="firstFlippedCard"  type="sObject" default="{'flipped': false, 'value':''}"/>
+    <aura:attribute name="secondFlippedCard" type="sObject" default="{'flipped': false, 'value':''}"/>
+    <aura:attribute name="boardCleared"      type="Boolean" default="false"/>
+    <aura:attribute name="resetBoard"        type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.numberOfMatches}" action="{!c.checkNumberOfMatches}"/>
+    <aura:handler name="change" value="{!v.resetBoard}"      action="{!c.resetBoardHandler}"/>
+
+    <div class="slds-size_1-of-1">
+        <div class="slds-size_1-of-1">
+            <c:StopWatch
+                firstFlippedCard="{!v.firstFlippedCard}"
+                boardCleared="{!v.boardCleared}"
+                resetBoard="{!v.resetBoard}"
+            />
+        </div>
+        <div class="slds-size_1-of-2 slds-grid slds-wrap memory-board">
+            <aura:if isTrue="{! not(empty(v.Cards)) }">
+                <aura:iteration items="{!v.Cards}" var="card">
+                    <c:MemoryCard 
+                        card="{!card}"
+                        numberOfMatches="{!v.numberOfMatches}"
+                        firstFlippedCard="{!v.firstFlippedCard}"
+                        secondFlippedCard="{!v.secondFlippedCard}"
+                        resetBoard="{!v.resetBoard}"
+                    />
+                </aura:iteration>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

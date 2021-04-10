@@ -1,0 +1,25 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="ltngCurrTime"     type="String"  default="00:00:00"/>
+    <aura:attribute name="ltngIsDisplayed"  type="Boolean" default="false"/> 
+    <aura:attribute name="firstFlippedCard" type="sObject" default="{'flipped': false, 'value':''}"/>
+    <aura:attribute name="something"        type="Boolean" default="true"/>
+    <aura:attribute name="boardCleared"     type="Boolean" default="false"/>
+    <aura:attribute name="resetBoard"       type="Boolean" default="false"/>
+    
+    <aura:handler name="init"   value="{! this }"             action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.firstFlippedCard}" action="{!c.startTimer}"/>
+    <aura:handler name="change" value="{!v.boardCleared}"     action="{!c.boardClearedHandler}"/>
+
+    <div class="slds-card slds-align_absolute-center stopwatch">
+        <div class="slds-grid slds-wrap" >
+            <div class="slds-col slds-size_1-of-1 slds-align_absolute-center time" >
+                {!v.ltngCurrTime}
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-align_absolute-center">
+                <lightning:button variant="brand" label="Start" onclick="{! c.handleStartClick }" disabled="{!v.ltngIsDisplayed}"/>
+                <lightning:button variant="brand" label="Stop" onclick="{! c.handleStopClick }" disabled="{! !v.ltngIsDisplayed}"/>
+                <lightning:button variant="brand" label="Reset" onclick="{! c.handleResetClick }" />
+            </div>
+        </div>
+    </div>    
+</aura:component>

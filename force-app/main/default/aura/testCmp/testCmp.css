@@ -1,0 +1,35 @@
+.THIS .button {
+    padding: 0.8vh 1.5vw;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    position: absolute;
+    bottom: 0;
+}
+.THIS .centered-text {
+    text-align: center;
+}
+.THIS .slds-spinner_container{
+    top: 100px;
+}
+.THIS .slds-select {
+    color: black;
+    background-color: gray;
+}
+
+.THIS .profile {
+    height: 200px;
+    color:white;
+}
+.THIS.wrap-left {
+    min-height: 500px;
+    max-height: 700px;
+    overflow: auto;
+    margin-bottom: 10%;
+    border: 1px solid gray;
+}
+.THIS .itteration-wrap {
+    margin: auto;
+    position: relative;
+}

@@ -1,0 +1,99 @@
+<apex:page standardController="Account" renderAs="pdf" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+	<apex:stylesheet value="{!URLFOR($Resource.testCSS)}"/>
+	<head>
+		<style>
+			@page {
+     			margin: 0;
+     			size: A4;
+      			padding: 5%;
+      		}
+			.background-gray {
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<apex:panelGrid cellspacing="0" cellpadding="0" columns="1" border="0" width="100%" rules="all" frame="box">
+			
+			<!-- <apex:panelGrid cellspacing="0" cellpadding="5%" columns="2" style="width:63%; text-align: right;">
+				<apex:outputText value="Num"/>
+			</apex:panelGrid>
+
+			<apex:panelGrid cellspacing="0" cellpadding="0" columns="2" width="100%" style="margin-bottom: 2%;">
+				<apex:outputText value="Saloon" styleClass="full"/>
+			</apex:panelGrid> -->
+
+			<apex:panelGrid columns="2" width="400px">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputLabel value="" />
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="Num"/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputLabel value="Saloon" />
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value=""/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px" styleClass="background-gray">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputLabel value="{!$ObjectType.Account.fields.BillingCountry.Label}" />
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!Account.BillingCountry}"/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+			
+			<apex:panelGrid columns="2" width="400px" >
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!$ObjectType.Account.fields.Fax.Label}" />
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!Account.Fax}" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px" styleClass="background-gray">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!$ObjectType.Account.fields.BillingState.Label}"/>
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!Account.BillingState}"/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px" >
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!$ObjectType.Account.fields.Active__c.Label}"/>
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!Account.Active__c}"/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px" styleClass="background-gray">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!$ObjectType.Account.fields.AnnualRevenue.Label}"/>
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px" >
+					<apex:outputText value="{!Account.AnnualRevenue}" />
+				</apex:panelGrid>
+			</apex:panelGrid>
+
+			<apex:panelGrid columns="2" width="400px">
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px">
+					<apex:outputText value="{!$ObjectType.Account.fields.CreatedDate.Label}"/>
+				</apex:panelGrid>
+				<apex:panelGrid cellspacing="0" cellpadding="5" columns="1" width="200px">
+					<apex:outputText value="{!Account.CreatedDate}"/>
+				</apex:panelGrid>
+			</apex:panelGrid>
+		</apex:panelGrid>	
+	</body>
+</apex:page>

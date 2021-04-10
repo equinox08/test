@@ -1,0 +1,52 @@
+<aura:component>
+    <aura:attribute name="fighter" type="sObject" default=""/>
+    <aura:attribute name="showProfile" type="Boolean" default="false"/>
+
+    
+
+<div class="fighter-wrap slds-size_1-of-1 slds-m-top_small slds-m-bottom_small" style="border: 2px solid gray;">
+    <div class="slds-grid" style="height: 100px;">
+        <div class="slds-col img-div slds-align_absolute-center slds-size_3-of-8" style="border: 2px solid gray; background-color: black;">
+            <img src="{! $Resource.testfighters + '/Images/' + v.fighter.Small_image__c }"/>
+        </div>
+        <div class="slds-col slds-size_5-of-8 slds-align_absolute-center" style="border: 2px solid gray; height: 100px; background-color: black; position:relative;">
+            <div style="text-align: center; color: gray;">
+                <h3>{!v.fighter.Name}</h3>
+                <p>'{!v.fighter.Nickname__c}'</p>
+            </div>
+            <aura:if isTrue="{!v.fighter.Champion__c}">
+                <div style="position: absolute; top: 10%; right: 3%;" title="{! 'Current ' + v.fighter.Division__c + ' Champion!'}">
+                    <img src="{! $Resource.testfighters + '/Images/' + 'belt.png' }" style="height: 30px;"/>
+                </div>
+            </aura:if>
+            <div class="details-click" style="position: absolute; bottom: 10%; right: 3%; cursor: pointer; color: gray;" onclick="{!c.openDetails}">
+                Details
+            </div>
+        </div>
+       
+    </div>
+    <div aura:id="tgl" class="details-wrap" style="border: 2px solid gray; background-color: black;">
+        <div class="details slds-grid" style="margin: auto;">
+            <div class="slds-col slds-size_3-of-8" style="padding-left:1vw;">
+                <p>Age: {!v.fighter.Age__c}</p>
+                <p>Country: {!v.fighter.Country__c} {!v.img.Id}</p>
+                <p>Division: {!v.fighter.Division__c}</p>
+            </div>
+            <div class="slds-col slds-size_3-of-8" style="padding-left:1vw;">
+                <p>Weight: {!v.fighter.Weight__c} kg</p>
+                <p>Height: {!v.fighter.Height__c} cm</p>
+                <p>Fight Record: {!v.fighter.Fight_Record__c} {!v.img.Id}</p>
+            </div>
+            <div class="buttons-wrap slds-size_2-of-8" >
+                <div>
+                    <button style=" margin-top: 1vh; margin-right: 1vw;" onclick="{!c.showFighterProfile}">Profile</button>
+                </div>
+                <div>
+                    <button style=" margin-top: 1vh; margin-right: 1vw;">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</aura:component>

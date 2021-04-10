@@ -1,0 +1,13 @@
+.THIS.card-wrap {
+    padding: 1.75rem;
+}
+
+.THIS .back-side {
+    background-color: yellow; 
+    height: 100px;
+}
+
+.THIS .front-side {
+    background-color: white; 
+    height: 100px;
+}

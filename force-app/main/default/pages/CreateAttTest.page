@@ -1,0 +1,2 @@
+<apex:page standardcontroller="Account" extensions="CretePDFController" action="{!createPDF}">
+</apex:page>

@@ -1,0 +1,10 @@
+@page {
+    margin: 0;
+    size: A4;
+     padding: 5%;
+ }
+
+ .full {
+     width: 100%;
+     text-align: right;
+ }

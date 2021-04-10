@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+
+
+    <div class="wrap slds-align_absolute-center">
+        something
+    </div>
+
+</aura:component>

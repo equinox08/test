@@ -1,0 +1,20 @@
+<template>
+    <template if:true={fightersList.data}>
+        <template for:each={fightersList.data} for:item="fighter">
+            <div key={fighter.Id} class="li-item">
+                {fighter.Name} <br/>
+                {fighter.Division__c} <br/>
+                {fighter.Nickname__c} <br/>
+                {fighter.Country__c} <br/>
+            </div>
+        </template>
+        <lightning-combobox
+                            name="progress"
+                            label="Division"
+                            value={value}
+                            placeholder="Select Progress"
+                            options={roleOptions}
+                            onchange={handleChange} >
+        </lightning-combobox>
+    </template>
+</template>

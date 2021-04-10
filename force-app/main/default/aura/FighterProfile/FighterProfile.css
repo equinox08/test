@@ -1,0 +1,15 @@
+.THIS .img-div {
+    padding-left: 5%;
+    padding-top: 3%;
+    display: inline-block;
+}
+.THIS .img {
+    height: 500px;
+}
+.THIS .details-div {
+    display: inline-block;
+    vertical-align: top;
+}
+.THIS .details-div p {
+    padding-top: 3%;
+}

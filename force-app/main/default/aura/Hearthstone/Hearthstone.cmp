@@ -1,0 +1,85 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="HearthstoneController">
+    <aura:attribute name="classes"           type="List"      default="[]"/>
+    <aura:attribute name="cardSet"           type="List"      default="[]"/>
+    <aura:attribute name="manaCost"          type="List"      default="[]"/>
+    <aura:attribute name="cards"             type="sObject[]" default=""/>
+    <aura:attribute name="selectedClass"     type="String"    default=""/>
+    <aura:attribute name="selectedCardSet"   type="String"    default=""/>
+    <aura:attribute name="selectedManaCost"  type="String"    default=""/>
+    <aura:attribute name="errorMsg"          type="String"    default="Please select Class and Expansion"/>
+    <aura:attribute name="noCardsMsg"        type="String"    default=""/>
+    <aura:attribute name="showErrorMsg"      type="Boolean"   default="false"/>
+    <aura:attribute name="showFilters"       type="Boolean"   default="false"/>
+    <aura:attribute name="showCards"         type="Boolean"   default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Wrapper -->
+    <div class="slds-size_1-of-1 wrapper">
+        <!-- Error Message -->
+        <aura:if isTrue="{!v.showErrorMsg}">
+            <div class="error-msg slds-size_1-of-1 slds-p-around_small">
+                {!v.errorMsg}
+            </div>
+        </aura:if>
+        <!-- Filters -->
+        <div class="select-wrapper slds-size_1-of-1 slds-grid slds-wrap">
+            <aura:if isTrue="{!v.showFilters}">
+                <div class="select-classes slds-small-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-4 slds-col slds-p-horizontal_small">
+                    <lightning:select label="Class"  name="Class"  aura:id="Class" value="{!v.selectedClass}" required="false" >
+                        <aura:iteration items="{!v.classes}" var="item" >
+                            <option text="{!item.label}" value="{!item.label}" selected="{!item.selected}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </div> 
+                <div class="select-expansions slds-max-small-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-4 slds-col slds-p-horizontal_small">
+                    <lightning:select label="Card Set"  name="CardSet"  aura:id="CardSet" value="{!v.selectedCardSet}" required="false" >
+                        <aura:iteration items="{!v.cardSet}" var="item" >
+                            <option text="{!item.label}" value="{!item.label}" selected="{!item.selected}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="select-manaCost slds-max-small-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-4 slds-col slds-p-horizontal_small">
+                    <lightning:select label="Mana Cost"  name="ManaCost"  aura:id="ManaCost" value="{!v.selectedManaCost}" required="false" >
+                        <aura:iteration items="{!v.manaCost}" var="item" >
+                            <option text="{!item.label}" value="{!item.label}" selected="{!item.selected}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="button-wrap slds-small-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-4 slds-col">
+                    <button class="filterButton" onclick="{!c.getCards}">Filter</button>
+                </div>
+                <aura:set attribute="else">
+                    <lightning:spinner alternativeText="Loading" size="large" />
+                </aura:set>
+            </aura:if>
+        </div>
+        <!-- Cards Section -->
+        <div class="slds-size_1-of-1 cards-wrapper slds-grid slds-wrap">
+            <aura:if isTrue="{!v.showCards}">
+                <aura:iteration items="{!v.cards}" var="card">
+                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_ 1-of-3 slds-large-size_1-of-3 slds-grid slds-m-around_small slds-wrap card-wrap">
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_medium card-details">
+                            <h2><b>{!card.name}</b></h2>
+                                <div>
+                                    <p>Card Set: {!card.cardSet}</p>
+                                    <p>Rarity: {!card.rarity}</p>
+                                    <p>Type: {!card.type}</p>
+                                    <p>How to Get: {!card.howToGet}</p>
+                                </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <img src="{!card.img}"/>
+                        </div>
+                    </div>
+                </aura:iteration> 
+                <aura:set attribute="else">
+                    <div class="no-cards-msg slds-size_1-of-1">
+                        {!v.noCardsMsg}
+                    </div>
+                </aura:set>
+            </aura:if>
+        </div>
+
+    </div>
+</aura:component>

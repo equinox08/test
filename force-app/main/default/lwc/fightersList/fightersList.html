@@ -1,0 +1,37 @@
+<template>
+    <div class="slds-x-small-size_1-of-1 slds-medium-size_7-of-12 slds-large-size_7-of-12  slds-var-m-bottom_medium">
+        <div class="slds-size_10-of-12 slds-grid" style="margin: auto;">
+            <div class="slds-col">
+                <template if:true={options}>
+                    <lightning-combobox
+                        name="progress"
+                        label="Division"
+                        value={selectedOption}
+                        options={options}
+                        onchange={handleChange}
+                    >
+                    </lightning-combobox>
+                </template>
+            </div>
+            <div class="slds-col slds-is-relative slds-text-align_center flex">
+                <div>
+                    <lightning-button label="Filter" class="button" onclick={useFilter}></lightning-button>
+                    <c-tooltip text="Some random help text"></c-tooltip>
+                </div>
+            </div>
+            <template if:true={error}>
+                <p>{error}</p>
+            </template>
+        </div>
+    </div>
+    <lightning-card>
+        <template if:true={contacts.data}> 
+            <lightning-datatable
+                key-field="Id"
+                data={contacts.data}
+                hide-checkbox-column
+            >
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

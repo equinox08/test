@@ -1,0 +1,25 @@
+<aura:component>
+    <aura:attribute name="card" type="Integer" default=""/>
+    <aura:attribute name="flipped" type="Boolean" default="false"/>
+    <aura:attribute name="numberOfMatches" type="Integer" default="0"/>
+    <aura:attribute name="firstFlippedCard" type="sObject" default="{'flipped': false, 'value':''}"/>
+    <aura:attribute name="secondFlippedCard" type="sObject"  default="{'flipped': false, 'value':''}"/>
+    <aura:attribute name="isMatch" type="Boolean" default="false"/>
+    <aura:attribute name="resetBoard"        type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.secondFlippedCard}" action="{!c.checkMatch}"/>
+    <aura:handler name="change" value="{!v.resetBoard}"        action="{!c.resetBoardHandler}"/>
+
+    <div class="slds-col slds-size_1-of-4 slds-align_absolute-center card-wrap">
+        <aura:if isTrue="{!v.flipped}">
+            <div class="slds-size_1-of-1 slds-align_absolute-center front-side">
+                {!v.card}
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-size_1-of-1 slds-align_absolute-center back-side" onclick="{!c.flipCard}">
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

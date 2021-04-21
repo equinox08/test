@@ -46,6 +46,7 @@ public  class testClass {
         // }
         
         // return lstPickvals;
+        ////////////////
 
             List<String> options = new List<String>();
             Schema.DescribeFieldResult fieldResult = Fighter__c.Division__c.getDescribe();
